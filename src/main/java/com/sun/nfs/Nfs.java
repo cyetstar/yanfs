@@ -250,7 +250,7 @@ public abstract class Nfs {
              * Make sure an array of buffers exists that's big enough
              * to for the entire file.
              */
-            if (bufferList == null)
+            if (bufferList == null || bufferList.length < (length() / rsize + 1))
                 bufferList = new Buffer[(int) length() / rsize + 1];
 
 	    /*
